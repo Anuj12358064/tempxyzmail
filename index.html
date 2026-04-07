@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TempMailX | Advanced Disposable Inbox</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar glass">
+        <div class="logo">
+            <i class="fa-solid fa-envelope-open-text"></i> TempMailX
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Inbox</a>
+            <a href="#">Features</a>
+            <a href="#">FAQ</a>
+        </div>
+        <div class="live-clock" id="liveClock">00:00:00</div>
+    </nav>
+
+    <main class="container">
+        
+        <section class="hero">
+            <h1>Instant Temporary Email Generator</h1>
+            <p>Create disposable email addresses for testing, verification, and quick inbox access. Protect your privacy with TempMailX.</p>
+        </section>
+
+        <section class="controls glass">
+            <div class="email-input-group">
+                <select id="domainSelect" class="cyber-input" title="Select Domain">
+                    <option value="@tempmailx.site">@tempmailx.site</option>
+                    <option value="@maildropx.fun">@maildropx.fun</option>
+                    <option value="@quickotp.live">@quickotp.live</option>
+                    <option value="@inboxlite.xyz">@inboxlite.xyz</option>
+                </select>
+                <input type="text" id="emailDisplay" class="cyber-input email-display" readonly>
+                <button class="btn btn-icon" id="copyBtn" title="Copy to Clipboard">
+                    <i class="fa-regular fa-copy"></i> Copy
+                </button>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="generateNewBtn">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Create New Temp
+                </button>
+                <button class="btn btn-secondary" id="refreshBtn">
+                    <i class="fa-solid fa-rotate-right"></i> Refresh
+                </button>
+                <button class="btn btn-danger" id="deleteBtn">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+            </div>
+        </section>
+
+        <section class="dashboard">
+            
+            <div class="inbox-panel glass">
+                <div class="inbox-header">
+                    <h3>Inbox (<span id="inboxCount">0</span>)</h3>
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" placeholder="Search emails...">
+                    </div>
+                </div>
+                <div class="inbox-list" id="inboxList">
+                    <div class="empty-state">
+                        <i class="fa-regular fa-folder-open"></i>
+                        <p>No emails received yet.</p>
+                    </div>
+                </div>
+                <div class="loader-overlay" id="inboxLoader">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+            <div class="email-viewer glass" id="emailViewer">
+                <div class="empty-viewer" id="emptyViewer">
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>Select an email to read</p>
+                </div>
+                
+                <div class="viewer-content" id="viewerContent" style="display: none;">
+                    <div class="viewer-header">
+                        <div class="sender-info">
+                            <div class="avatar" id="vAvatar">A</div>
+                            <div>
+                                <h4 id="vSender">Sender Name</h4>
+                                <span class="v-email" id="vSenderEmail">sender@example.com</span>
+                            </div>
+                        </div>
+                        <div class="time-info" id="vTime">10:45 AM</div>
+                    </div>
+                    <div class="viewer-subject">
+                        <h2 id="vSubject">Email Subject</h2>
+                    </div>
+                    <div class="viewer-body">
+                        <p id="vBody">Message body goes here...</p>
+                        <div class="otp-container" id="vOtpContainer" style="display: none;">
+                            <p>Your OTP Code:</p>
+                            <div class="otp-code" id="vOtp">000000</div>
+                        </div>
+                    </div>
+                    <button class="btn-close-mobile" id="closeMobileBtn"><i class="fa-solid fa-arrow-left"></i> Back to Inbox</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TempMailX — Fast, Secure, Disposable Inbox UI Demo</p>
+    </footer>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
